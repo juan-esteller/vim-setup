@@ -59,3 +59,7 @@ let g:EasyMotion_smartcase = 1
 map <Leader>j <Plug>(easymotion-j)
 map <Leader>k <Plug>(easymotion-k)
 set scrolloff=5
+
+"configure supertab to context completion 
+let g:SuperTabDefaultCompletionType = "context"
+
