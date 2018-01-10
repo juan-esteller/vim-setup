@@ -15,5 +15,6 @@ git clone git@github.com:vim-airline/vim-airline.git
 git clone git@github.com:easymotion/vim-easymotion.git
 git clone git@github.com:tpope/vim-surround.git
 git clone git://github.com/airblade/vim-gitgutter.git
-git clone git@github.com:ervandew/supertab.git
 git clone git@github.com:tpope/vim-fugitive.git
+git clone https://github.com/Shougo/neocomplete.vim.git
+git clone https://github.com/ervandew/screen.git
