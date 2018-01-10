@@ -6,6 +6,9 @@ execute pathogen#infect()
 set tabstop=4
 set autoindent 
 
+"turn on syntax highlighting 
+syntax on 
+
 "configure syntastic 
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
