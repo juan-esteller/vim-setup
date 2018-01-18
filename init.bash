@@ -1,4 +1,5 @@
 cp .vimrc ~/.vimrc
+cp .tmux.conf ~/.tmux.conf
 mkdir ~/.vim
 cd ~/.vim
 mkdir autoload 
