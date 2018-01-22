@@ -1,4 +1,3 @@
-"turn on pathogen 
 execute pathogen#infect()
 
 "set up tabbing and autoindent 
@@ -18,6 +17,7 @@ let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 let g:syntastic_enable_signs = 1
 let g:syntastic_auto_jump = 1
+let g:syntastic_cpp_compiler_options = '-std=c++11'
 
 "set up line number and cursor 
 set number 
@@ -112,3 +112,18 @@ let g:neocomplete#sources#omni#input_patterns.cpp = '[^.[:digit:] *\t]\%(\.\|->\
 " For perlomni.vim setting.
 " https://github.com/c9s/perlomni.vim
 let g:neocomplete#sources#omni#input_patterns.perl = '\h\w*->\h\w*\|\h\w*::'
+
+
+"stuff for viewing pdfs 
+let g:Tex_ViewRule_pdf = 'okular'
+let g:Tex_ViewRule_dvi = 'okular'
+let g:Tex_ViewRule_ps = 'okular'
+
+"make sure that I can reach line in document 
+let g:Tex_CompileRule_dvi = 'latex -interaction=nonstopmode -src-specials $*'
+let g:Tex_CompileRule_pdf = 'pdflatex $*'
+let g:Tex_DefaultTargetFormat='pdf' 
+let g:Tex_GotoError=0 
+
+"load profile to shell 
+set shell=bash\ -l 
