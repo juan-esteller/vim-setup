@@ -127,3 +127,5 @@ let g:Tex_GotoError=0
 
 "load profile to shell 
 set shell=bash\ -l 
+
+let g:syntastic_disabled_filetypes=['cc']
