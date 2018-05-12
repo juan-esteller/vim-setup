@@ -1,13 +1,13 @@
 execute pathogen#infect()
 
-"set up tabbing and autoindent 
+"set up tabbing and autoindent
 set tabstop=4
-set autoindent 
+set autoindent
 
-"turn on syntax highlighting 
-syntax on 
+"turn on syntax highlighting
+syntax on
 
-"configure syntastic 
+"configure syntastic
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
@@ -19,15 +19,15 @@ let g:syntastic_enable_signs = 1
 let g:syntastic_auto_jump = 1
 let g:syntastic_cpp_compiler_options = '-std=c++11'
 
-"set up line number and cursor 
-set number 
+"set up line number and cursor
+set number
 set cursorline
 hi CursorLine   cterm=NONE ctermbg=darkred ctermfg=white guibg=darkred guifg=white
 highlight LineNr term=bold cterm=NONE ctermfg=DarkGrey ctermbg=NONE gui=NONE guifg=DarkGrey guibg=NONE
 filetype plugin on
 set omnifunc=syntaxcomplete#Complete
 
-"tab stuff 
+"tab stuff
 filetype plugin indent on
 " show existing tab with 4 spaces width
 set tabstop=4
@@ -59,13 +59,13 @@ map <Leader>j <Plug>(easymotion-j)
 map <Leader>k <Plug>(easymotion-k)
 set scrolloff=5
 
-"configure supertab to context completion 
+"configure supertab to context completion
 let g:SuperTabDefaultCompletionType = "context"
 
 "configure screen shell to use tmux
 let g:ScreenImpl = 'Tmux'
 
-"enable neocomplete at startup 
+"enable neocomplete at startup
 let g:neocomplete#enable_at_startup = 1
 
 "Note: This option must be set in .vimrc(_vimrc).  NOT IN .gvimrc(_gvimrc)!
@@ -114,18 +114,24 @@ let g:neocomplete#sources#omni#input_patterns.cpp = '[^.[:digit:] *\t]\%(\.\|->\
 let g:neocomplete#sources#omni#input_patterns.perl = '\h\w*->\h\w*\|\h\w*::'
 
 
-"stuff for viewing pdfs 
+"stuff for viewing pdfs
 let g:Tex_ViewRule_pdf = 'okular'
 let g:Tex_ViewRule_dvi = 'okular'
 let g:Tex_ViewRule_ps = 'okular'
 
-"make sure that I can reach line in document 
+"make sure that I can reach line in document
 let g:Tex_CompileRule_dvi = 'latex -interaction=nonstopmode -src-specials $*'
 let g:Tex_CompileRule_pdf = 'pdflatex $*'
-let g:Tex_DefaultTargetFormat='pdf' 
-let g:Tex_GotoError=0 
+let g:Tex_DefaultTargetFormat='pdf'
+let g:Tex_GotoError=0
 
-"load profile to shell 
-set shell=bash\ -l 
+"load profile to shell
+set shell=bash\ -l
 
 let g:syntastic_disabled_filetypes=['cc']
+
+
+set timeoutlen=300
+set undofile
+set undodir=~/.vim/undo
+set directory=~/.vim/swap
