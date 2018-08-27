@@ -1,4 +1,4 @@
-cp .vimrc ~/.vimrc
+ln .vimrc ~/.vimrc
 cp .tmux.conf ~/.tmux.conf
 mkdir ~/.vim
 cd ~/.vim
@@ -20,4 +20,4 @@ git clone git@github.com:tpope/vim-fugitive.git
 git clone https://github.com/Shougo/neocomplete.vim.git
 git clone https://github.com/ervandew/screen.git
 git clone git@github.com:ntpeters/vim-better-whitespace.git
-git@github.com:vim-latex/vim-latex.git
+git clone git@github.com:vim-latex/vim-latex.git

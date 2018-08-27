@@ -135,3 +135,10 @@ set timeoutlen=300
 set undofile
 set undodir=~/.vim/undo
 set directory=~/.vim/swap
+
+nnoremap <S-tab> :tabprevious<CR>
+nnoremap <tab>   :tabnext<CR>
+nnoremap <C-t>     :tabnew<CR>
+inoremap <C-S-tab> <Esc>:tabprevious<CR>i
+inoremap <C-tab>   <Esc>:tabnext<CR>i
+inoremap <C-t>     <Esc>:tabnew<CR>
