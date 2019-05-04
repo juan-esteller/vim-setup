@@ -30,7 +30,7 @@ font pango:monospace 8
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec gnome-terminal
+bindsym $mod+Return exec i3-sensible-terminal
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -67,6 +67,7 @@ bindsym $mod+Shift+Up move up
 bindsym $mod+Shift+Right move right
 
 # split in horizontal orientation
+bindsym $mod+Shift+v split h
 
 # split in vertical orientation
 bindsym $mod+v split v
@@ -165,7 +166,13 @@ exec --no-startup-id synclient NaturalScrolling=1 VertScrollDelta=-113
 # wallpaper
 exec feh --bg-scale ~/wallpapers/stars.jpg
 
-# disable touchpad while typing
-exec syndaemon -i 1 -d -K
+exec compton --config .config/compton/compton.conf
 
-exec --no-startup-id xautolock -time 60 -locker "i3lock-wrapper -l"
+# disable touchpad while typing
+exec syndaemon -i 0.5 -d -K
+
+exec --no-startup-id xautolock -time 1 -locker "i3lock -c 000000"
+
+focus_follows_mouse no
+
+bindsym $mod+b exec google-chrome
