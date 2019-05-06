@@ -4,6 +4,8 @@
 # Should you change your keyboard layout some time, delete
 # this file and re-run i3-config-wizard(1).
 #
+#
+# change!
 
 # i3 config file (v4)
 #
@@ -131,10 +133,10 @@ mode "resize" {
         # Pressing right will grow the window’s width.
         # Pressing up will shrink the window’s height.
         # Pressing down will grow the window’s height.
-        bindsym l resize shrink width 10 px or 10 ppt
-        bindsym j resize grow height 10 px or 10 ppt
-        bindsym k resize shrink height 10 px or 10 ppt
-        bindsym h resize grow width 10 px or 10 ppt
+        bindsym l resize shrink width 3 px or 3 ppt
+        bindsym j resize grow height 3 px or 3 ppt
+        bindsym k resize shrink height 3 px or 3 ppt
+        bindsym h resize grow width 3 px or 3 ppt
 
         # same bindings, but for the arrow keys
         bindsym Left resize shrink width 10 px or 10 ppt
@@ -155,24 +157,50 @@ bar {
         status_command i3status
 }
 
-# lock screen
+# compositor (super fucking important)
+exec --no-startup-id compton --config .config/compton/compton.conf
 
 # clipboard
 exec --no-startup-id clipit
 
-# make scropping natural
+# make scrolling natural
 exec --no-startup-id synclient NaturalScrolling=1 VertScrollDelta=-113
 
 # wallpaper
-exec feh --bg-scale ~/wallpapers/stars.jpg
-
-exec compton --config .config/compton/compton.conf
+exec --no-startup-id feh --bg-scale ~/wallpapers/stars.jpg
 
 # disable touchpad while typing
-exec syndaemon -i 0.5 -d -K
+exec --no-startup-id syndaemon -i 0.1 -d -K
 
-exec --no-startup-id xautolock -time 1 -locker "i3lock -c 000000"
+exec --no-startup-id xautolock -time 3 -locker "./lock.sh"
 
 focus_follows_mouse no
 
 bindsym $mod+b exec google-chrome
+
+
+# Pulse Audio controls
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5%
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -5%
+bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle # mute sound
+
+
+bindsym XF86MonBrightnessUp exec xbacklight -inc 5 # increase screen brightness
+bindsym XF86MonBrightnessDown exec xbacklight -dec 5 # decrease screen brightness
+bindsym XF86AudioMicMute exec --no-startup-id amixer set Capture toggle
+
+# make keys repeat fast
+exec --no-startup-id xset rate 100 5
+
+# mouse acceleration
+exec --no-startup-id xset m 10/2 10
+
+# Enable horizontal scrolling and disable the edge of the touchpad for
+# the sake of my sanity while typing. Also turn off edge scrolling,
+# and make pressure need to be higher for my clunky ass,
+# and disable double tap-right click
+exec --no-startup-id synclient HorizScrollDelta=-115 HorizTwoFingerScroll=1 \
+    AreaTopEdge=2000 AreaLeftEdge=2000 AreaRightEdge=5000 VertEdgeScroll=0 \
+    FingerHigh=45 FingerLow=40 PalmDetect=1 TapButton2=0
+
+exec_always --no-startup-id conky
