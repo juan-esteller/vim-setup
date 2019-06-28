@@ -124,7 +124,7 @@ function mcd {
 
 
 function copy {
-    cat $1 | xclip -selection c
+    xclip -selection c < $1
 }
 # set vim as editor
 # fortune
@@ -133,7 +133,16 @@ export EDITOR=vi
 alias mae=make
 alias amke=make
 alias maek=make
+alias mkae=make
+alias mke=make
+alias ake=make
 
 function find_header {
     echo "#include <$1>" | cpp -H -o /dev/null 2>&1 | head -n1
 }
+
+function airhorn {
+    xdg-open https://www.youtube.com/watch?v=OFr74zI1LBM
+}
+
+alias vim="vim -X"
